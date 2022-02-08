@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Library</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Simple Library</h1>
+  </header>
+  
+
+  <main>
+    <h2>Your Books</h2>
+    <div class="books-container">
+      
+    </div>
+  </main>
+
+  <div class="modal">
+    <div class="modal-content">
+      <form action="#" class="add-book-form">
+        <h3>Add Book</h3>
+        <input type="text" name="book_title" id="input-title" placeholder="Title*" required>
+        <input type="text" name="book_author" id="input-author" placeholder="Author*" required>
+        <input type="text" name="book_year" id="input-year" placeholder="Year*" required>
+        <input type="text" name="book_pages" id="input-pages" placeholder="Pages*" required>
+        <label for="input-status" class="checkbox-container">Have you read it?
+          <input type="checkbox" class="checkbox" name="isRead" id="input-status">
+        </label>
+        <button class="btn-submit-book" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
