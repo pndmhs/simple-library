@@ -4,12 +4,14 @@ const modal = document.querySelector(".modal");
 
 let myLibrary = [];
 
-function Book(title, author, year, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.year = year;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book {
+  constructor(title, author, year, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
 
 function addBookToLibrary(title, author, year, pages, isRead) {
@@ -88,8 +90,8 @@ function displayBook() {
 }
 
 function removeBook(e) {
-  myLibrary.splice(e.target.dataset.index, 1);
-  e.target.parentElement.remove();
+  myLibrary.splice(e.currentTarget.dataset.index, 1);
+  e.currentTarget.parentElement.remove();
 }
 
 function displayAddButton() {
