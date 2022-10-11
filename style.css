@@ -187,13 +187,15 @@ main h2 {
 }
 
 .add-book-form input[type="text"],
+.add-book-form input[type="number"],
 .add-book-form label,
 .add-book-form button {
   font-size: 1.25rem;
   font-family: inherit;
 }
 
-.add-book-form input[type="text"] {
+.add-book-form input[type="text"],
+.add-book-form input[type="number"] {
   padding: 12px;
   outline: none;
   border: 2px solid hsl(0, 0%, 80%);
@@ -201,7 +203,8 @@ main h2 {
   width: 350px;
 }
 
-.add-book-form input[type="text"]:focus {
+.add-book-form input[type="text"]:focus,
+.add-book-form input[type="number"]:focus {
   border: 2px solid hsl(0, 0%, 60%);
 }
 

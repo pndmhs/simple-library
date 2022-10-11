@@ -1,6 +1,14 @@
 const bookContainer = document.querySelector(".books-container");
 const addBookForm = document.querySelector(".add-book-form");
 const modal = document.querySelector(".modal");
+const titelInput = document.querySelector("#input-title");
+const authorInput = document.querySelector("#input-author");
+const yearInput = document.querySelector("#input-year");
+const pagesInput = document.querySelector("#input-pages");
+const isReadInput = document.querySelector("#input-status");
+
+const thisYear = new Date().getFullYear();
+yearInput.setAttribute("max", thisYear);
 
 let myLibrary = [];
 
@@ -121,16 +129,55 @@ function updateLibraryDisplay() {
 
 function addNewBook(e) {
   e.preventDefault();
-  let titleInput = document.querySelector("#input-title").value;
-  let authorInput = document.querySelector("#input-author").value;
-  let yearInput = document.querySelector("#input-year").value;
-  let pagesInput = document.querySelector("#input-pages").value;
-  let isReadInput = document.querySelector("#input-status");
+  let title = titelInput.value;
+  let author = authorInput.value;
+  let year = yearInput.value;
+  let pages = pagesInput.value;
   let isRead = isReadInput.checked ? true : false;
-  addBookToLibrary(titleInput, authorInput, yearInput, pagesInput, isRead);
+  addBookToLibrary(title, author, year, pages, isRead);
   modal.style.display = "none";
   addBookForm.reset();
   updateLibraryDisplay();
 }
+
+function formValidation() {
+  titelInput.addEventListener("input", () => {
+    if (titelInput.validity.valueMissing) {
+      titelInput.setCustomValidity("Title can't be empty");
+      titelInput.reportValidity();
+    } else {
+      titelInput.setCustomValidity("");
+    }
+  })
+
+  authorInput.addEventListener("input", () => {
+    if (authorInput.validity.valueMissing) {
+      authorInput.setCustomValidity("Author can't be empty");
+      authorInput.reportValidity();
+    } else {
+      authorInput.setCustomValidity("");
+    }
+  })
+
+  yearInput.addEventListener("input", () => {
+    if (yearInput.validity.valueMissing) {
+      yearInput.setCustomValidity("Year can't be empty");
+      yearInput.reportValidity();
+    } else {
+      yearInput.setCustomValidity("");
+    }
+  })
+  
+  pagesInput.addEventListener("input", () => {
+    if (pagesInput.validity.valueMissing) {
+      pagesInput.setCustomValidity("Pages can't be empty");
+      pagesInput.reportValidity();
+    } else {
+      pagesInput.setCustomValidity("");
+    }
+  })
+}
+
+formValidation();
 
 addBookForm.addEventListener("submit", addNewBook)
